@@ -24,12 +24,13 @@ var monthNames = new Array(
 
 var setRefresh = setRefresh ? setRefresh*1000 : 30000;
 var now = new Date(); // Current Date (Client Side)
+var hours, hours12, use24;
 function upDate () {
 	now = new Date();
-	var hours = now.getHours ();
+	hours = now.getHours ();
 	hours = hours === 0 && !set24hr ? 12 : hours; // Eliminate 00:00 at midnight unless 24hr
-	var hours12 = hours > 12 ? hours - 12 : hours;
-	var use24 = set24hr ? hours : hours12; // 24hr Clock
+	hours12 = hours > 12 ? hours - 12 : hours;
+	use24 = set24hr ? hours : hours12; // 24hr Clock
 }
 setInterval("upDate()", 1000);
 function random (max)  { // Random Number
