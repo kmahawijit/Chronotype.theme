@@ -51,7 +51,8 @@ function setDate() { // Sets the date
 };
 
 function blinky () {
-	$(".blinkme").fadeToggle(500, "linear")
+	if (setBlink)
+		$(".blinkme").fadeToggle(500, "linear")
 }
 
 function slabTextHeadlines() { // Set Text Full Width
