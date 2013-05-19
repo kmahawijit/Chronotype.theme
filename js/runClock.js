@@ -24,7 +24,7 @@ var monthNames = new Array(
 
 var setRefresh = setRefresh ? setRefresh*1000 : 30000;
 var now = new Date(); // Current Date (Client Side)
-var hours, hours12, use24;
+var hours, hours12, use24 = now.getHours ();
 function upDate () {
 	now = new Date();
 	hours = now.getHours ();
