@@ -1,0 +1,29 @@
+#hour 
+	{
+	color: #3F90B0;
+	}
+.blinkme
+	{
+	color: #B1B14E;
+	}
+#minute 
+	{
+	color: #D7934E;
+	}
+#day
+	{
+	color: #B1B14E;
+	}
+#date
+	{
+	color: #508E4D;
+	}
+#month
+	{
+	background: #B14F4F;
+	color: #fff;
+	}
+#year
+	{
+	color: #B14F4F;
+	}
