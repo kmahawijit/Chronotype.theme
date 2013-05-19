@@ -1,4 +1,4 @@
-Chronotype.theme
+Chronotype.theme ([DEMO](http://jtheissen.com/ios/Chronotype.theme/))
 ================
 
 A text based clock widget for jailbroken iOS devices (Winterboard and PPH)
