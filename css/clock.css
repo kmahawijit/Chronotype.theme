@@ -16,9 +16,10 @@ body
 	margin: 0 auto;
 	text-align: center;
 	text-transform: uppercase;
+	z-index: 0;
 	}
-div 
-	{ 
+#container
+	{
 	opacity: 0;
 	margin: 0 auto;
 	overflow:hidden;
@@ -88,4 +89,16 @@ h3
 	vertical-align: top;
 	font-size: 100px;
 	line-height: 1em;
+	}
+
+#statusBar
+	{
+	display: none;
+	width: 320px;
+	height: 20px;
+	position: absolute;
+	top: 0;
+	left: auto;
+	background: #000;
+	opacity: 0.3;
 	}

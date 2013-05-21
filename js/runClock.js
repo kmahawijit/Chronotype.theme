@@ -22,26 +22,37 @@ var monthNames = new Array(
 	"December"
 );
 
+GetTheme = { // Using GET Variables for theme testing in browser
+	URLString : function (item) {
+		var strval = location.search.match(new RegExp("[\?\&]" + item + "=([^\&]*)(\&?)","i"));
+		return strval ? strval[1] : strval;
+	}
+}
+setTheme = setTheme ? GetTheme.URLString("theme") : setTheme;
+
 var setRefresh = setRefresh ? setRefresh*1000 : 30000;
 var now = new Date(); // Current Date (Client Side)
-var hours, hours12, use24 = now.getHours ();
-function upDate () {
-	now = new Date();
+var hours, hours12, use24;
+function setHours () {
 	hours = now.getHours ();
 	hours = hours === 0 && !set24hr ? 12 : hours; // Eliminate 00:00 at midnight unless 24hr
 	hours12 = hours > 12 ? hours - 12 : hours;
 	use24 = set24hr ? hours : hours12; // 24hr Clock
 }
-setInterval("upDate()", 1000);
-function random (max)  { // Random Number
-	return Math.floor(Math.random()*(max+1));
+setHours ();
+function random (array)  { 
+	// takes an array, returns one of it's elements
+	var num = Math.floor(Math.random()*(array.length-1));
+	return array[num];
 };
-function ldZ(num) { // Generates leading zeroes
+function ldZ(num) { // Generates leading zeroes if needed
 	var newNum = num < 10 ? "0" + num : num;
 	return newNum;
 }
 
 function setDate() { // Sets the date
+	now = new Date();
+	setHours();
 	$("#hour").html(ldZ(use24));
 	$("#minute").html(ldZ(now.getMinutes()));
 	$("#day span").html(dayNames[now.getDay()]);
@@ -59,27 +70,49 @@ function slabTextHeadlines() { // Set Text Full Width
 	$("h1").slabText();
 };
 
-function setConfig () { // Adjust CSS to preference via configure.js
+function configTheme () { // Adjust CSS to preference via configure.js
+	$("#time").css("padding-top", (setTop-20)+"px");
 	switch (setTheme) {
 		case "Colors":
 			$("link.theme").attr("href","css/colorsTheme.css");
+			function themeBar() {	
+				statusBarBorder = true,
+				statusBarBorderWidth = 2,
+				statusBarBorderColor = "#B14F4F",
+				statusBarColor = "#e0e0e0",
+				setOpacity = 1;
+			}
+			var themeStatus = true;
 			break;
-		default:	
-			//$("link.theme").attr("href","css/default.css");			
-			$("body").css('color', setColor);
-			$("#month").css('background', setColor);
-			$("html").css('font-family', setFont);
+		default:			
+			$("container").css("color", setColor);
+			$("#month").css("background", setColor);
+			$("html").css("font-family", setFont);
 			break;
 	}
-	$("body").css('opacity', setOpacity);
-	$("#time").css('padding-top', (setTop-20)+"px");
+	if (showStatusBar) {
+		$("#time").css("padding-top", "+=20");
+		if (themeStatus) { themeBar(); }	
+		if (statusBarBorder) {			
+			$("#time").css("padding-top", "+=4");
+			$("#statusBar").css("border-bottom", statusBarBorderWidth+"px solid "+statusBarBorderColor);
+		}
+		$("#statusBar").css("background", statusBarColor);
+		$("#statusBar").fadeTo(setFadeIn,statusBarOpacity);
+	}
 };
 
 $(window).load(function() { // Run 
+	configTheme();
 	setDate();
-	setInterval("blinky()",500);
-	setConfig();
-	slabTextHeadlines();
-	$("body div").fadeTo(setFadeIn,1); // fade in, hides pre-js html
 	setInterval("setDate()", setRefresh);
+	setInterval("blinky()",500);
+	slabTextHeadlines();
+	$("#container").fadeTo(setFadeIn,setOpacity); // fade in, hides pre-js html
 });
+
+/*************************TODO**************************
+- Remove bulk of case "Colors" back into colorsTheme.css
+- Add Gray, Black, and White themes
+- Remove random func if not used for something else
+*******************************************************/

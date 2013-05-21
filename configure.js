@@ -1,31 +1,42 @@
 var setTheme = "Colors";
-	// Early stages of a theming system
-	// Current choices are "default", "Colors", and "Text"
-	// Colors is set to match the LS Squares Winterboard
-	// Text is coming soon, meant to use only text, no numbers.
+	// This theming system is in its infancy
+	// Current setTheme options are:
+	// "default" - Uses Settings Below
+	// "Colors" - Multicolor to match LS Squares
 	
-	setColor = "#000",
 	// Hex Color eg. "#000"
+	setColor = "#000",
 	
-	setOpacity = 1,
 	// Opacity of entire clock, from 0 (transparent) - 1 (opaque)
+	setOpacity = 0.12,
 	
-	setFont = "TGA-Regular",
 	// Font Family (Check iosfonts.com for choices based on device)
 	// "default" is Tex Gyre Adventor Regular
+	setFont = "TGA-Regular",
 	
-	set24hr = true,
 	// Use 24-hour Clock
+	set24hr = true,
 	
-	setFadeIn = 200,
 	// Fade in on refresh, in ms, set to 0 for no fade
+	setFadeIn = 200,
 	
-	setTop = 20,
 	// Top Margin in px, 20 default for status bar
+	setTop = 20,
 	
-	setBlink = true,
 	// Blink ":" between Hr & Min
+	setBlink = true,
 	
-	setRefresh = 10;
 	// Number of Seconds between time updates
+	// Suggest using 1 - 60, (default 10) otherwise you'll be slow
+	setRefresh = 10,
+	
+	//Show a themeable status bar
+	//(use winterboard to hide the normal status bar)
+	showStatusBar = true,
+	statusBarColor = "#e0e0e0",
+	statusBarOpacity = 1,
+	statusBarBorder = true,
+	statusBarBorderColor = "red",
+	statusBarBorderWidth = 2;
+	
 
