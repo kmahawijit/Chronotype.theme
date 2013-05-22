@@ -29,7 +29,6 @@ GetTheme = { // Using GET Variables for theme testing in browser
 	}
 }
 setTheme = GetTheme.URLString("theme") ? GetTheme.URLString("theme") : setTheme;
-console.log(setTheme);
 
 var setRefresh = setRefresh ? setRefresh*1000 : 30000;
 var now = new Date(); // Current Date (Client Side)
@@ -76,30 +75,12 @@ function configTheme () { // Adjust CSS to preference via configure.js
 	switch (setTheme) {
 		case "Colors":
 			$("link.theme").attr("href","css/colorsTheme.css");
-			function themeBar() {	
-				statusBarBorder = true,
-				statusBarBorderWidth = 5,
-				statusBarBorderColor = "#508E4D",
-				statusBarColor = "#e0e0e0",
-				setOpacity = 1;
-			}
-			var themeStatus = true;
 			break;
 		default:			
 			$("container").css("color", setColor);
 			$("#month").css("background", setColor);
 			$("html").css("font-family", setFont);
 			break;
-	}
-	if (showStatusBar) {
-		$("#time").css("padding-top", "+=20");
-		if (themeStatus) { themeBar(); }	
-		if (statusBarBorder) {			
-			$("#time").css("padding-top", "+=4");
-			$("#statusBar").css("border-bottom", statusBarBorderWidth+"px solid "+statusBarBorderColor);
-		}
-		$("#statusBar").css("background", statusBarColor);
-		$("#statusBar").fadeTo(setFadeIn,statusBarOpacity);
 	}
 };
 

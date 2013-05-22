@@ -28,15 +28,6 @@ var setTheme = "default";
 	
 	// Number of Seconds between time updates
 	// Suggest using 1 - 60, (default 10) otherwise you'll be slow
-	setRefresh = 10,
-	
-	//Show a themeable status bar
-	//(use winterboard to hide the normal status bar)
-	showStatusBar = false,			// 'Colors' Theme Overrides to:
-	statusBarColor = "#999",		// #e0e0e0
-	statusBarOpacity = 1,			// 1
-	statusBarBorder = true,			// true
-	statusBarBorderColor = "#0f0",	// #508E4D
-	statusBarBorderWidth = 2;		// 5
+	setRefresh = 10;
 	
 
