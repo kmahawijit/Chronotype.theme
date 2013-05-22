@@ -1,4 +1,4 @@
-var setTheme = "Colors";
+var setTheme = "default";
 	// This theming system is in its infancy
 	// Current setTheme options are:
 	// "default" - Uses Settings Below
@@ -8,17 +8,17 @@ var setTheme = "Colors";
 	setColor = "#000",
 	
 	// Opacity of entire clock, from 0 (transparent) - 1 (opaque)
-	setOpacity = 0.12,
+	setOpacity = 0.6,
 	
 	// Font Family (Check iosfonts.com for choices based on device)
 	// "default" is Tex Gyre Adventor Regular
 	setFont = "TGA-Regular",
 	
 	// Use 24-hour Clock
-	set24hr = true,
+	set24hr = false,
 	
 	// Fade in on refresh, in ms, set to 0 for no fade
-	setFadeIn = 200,
+	setFadeIn = 500,
 	
 	// Top Margin in px, 20 default for status bar
 	setTop = 20,
@@ -32,11 +32,11 @@ var setTheme = "Colors";
 	
 	//Show a themeable status bar
 	//(use winterboard to hide the normal status bar)
-	showStatusBar = true,
-	statusBarColor = "#e0e0e0",
-	statusBarOpacity = 1,
-	statusBarBorder = true,
-	statusBarBorderColor = "red",
-	statusBarBorderWidth = 2;
+	showStatusBar = false,			// 'Colors' Theme Overrides to:
+	statusBarColor = "#999",		// #e0e0e0
+	statusBarOpacity = 1,			// 1
+	statusBarBorder = true,			// true
+	statusBarBorderColor = "#0f0",	// #508E4D
+	statusBarBorderWidth = 2;		// 5
 	
 

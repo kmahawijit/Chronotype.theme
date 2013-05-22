@@ -28,7 +28,8 @@ GetTheme = { // Using GET Variables for theme testing in browser
 		return strval ? strval[1] : strval;
 	}
 }
-setTheme = setTheme ? GetTheme.URLString("theme") : setTheme;
+setTheme = GetTheme.URLString("theme") ? GetTheme.URLString("theme") : setTheme;
+console.log(setTheme);
 
 var setRefresh = setRefresh ? setRefresh*1000 : 30000;
 var now = new Date(); // Current Date (Client Side)
@@ -77,8 +78,8 @@ function configTheme () { // Adjust CSS to preference via configure.js
 			$("link.theme").attr("href","css/colorsTheme.css");
 			function themeBar() {	
 				statusBarBorder = true,
-				statusBarBorderWidth = 2,
-				statusBarBorderColor = "#B14F4F",
+				statusBarBorderWidth = 5,
+				statusBarBorderColor = "#508E4D",
 				statusBarColor = "#e0e0e0",
 				setOpacity = 1;
 			}
