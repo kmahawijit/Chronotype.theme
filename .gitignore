@@ -1,7 +1,7 @@
 # Adobe Docs #
 ##############
-.psd
-.ai
+*.psd
+*.ai
 
 # Compiled source #
 ###################
