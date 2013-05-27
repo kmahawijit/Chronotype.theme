@@ -30,7 +30,7 @@ GetTheme = { // Using GET Variables for theme testing in browser
 }
 setTheme = GetTheme.URLString("theme") ? GetTheme.URLString("theme") : setTheme;
 
-var setRefresh = setRefresh ? setRefresh*1000 : 30000;
+var setRefresh = setRefresh ? setRefresh*10000 : 30000;
 var now = new Date(); // Current Date (Client Side)
 var hours, hours12, use24;
 function setHours () {
@@ -59,6 +59,7 @@ function setDate() { // Sets the date
 	$("#month span").html(monthNames[now.getMonth()]);
 	$("#date span").html(ldZ(now.getDate()));
 	$("#year span").html(now.getFullYear());
+	slabTextHeadlines();
 };
 
 function blinky () {
@@ -89,7 +90,6 @@ $(window).load(function() { // Run
 	setDate();
 	setInterval("setDate()", setRefresh);
 	setInterval("blinky()",500);
-	slabTextHeadlines();
 	$("#container").fadeTo(setFadeIn,setOpacity); // fade in, hides pre-js html
 });
 

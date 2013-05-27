@@ -27,7 +27,7 @@ var setTheme = "default";
 	setBlink = true,
 	
 	// Number of Seconds between time updates
-	// Suggest using 1 - 60, (default 10) otherwise you'll be slow
-	setRefresh = 10;
+	// Suggest using 1 - 60, (default 30) otherwise you'll be slow
+	setRefresh = 30;
 	
 

@@ -4,7 +4,7 @@ Chronotype.theme ([DEMO](http://jtheissen.com/ios/Chronotype.theme/))
 A text based clock widget for jailbroken iOS devices (Winterboard and PPH)
 -------------------------------------------------------------------------------------------------------
 
-A jQuery based typographic clock for use as a Lock Screen (Winterboard) or page widget (PerPageHtml) on jailbroken iPhones.
+A jQuery based typographic clock for use as a page widget (PerPageHtml) (or, possibly, a Lock Screen [Winterboard]) on jailbroken iPhones.
 
 Libraries Used: [jQuery](http://jquery.com) and [slabText](http://www.frequency-decoder.com/demo/slabText/)
 

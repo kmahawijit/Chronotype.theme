@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Chronotype</title>
+	
+	<meta name="author" content="jThei"/> 
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1"/>
+	
+	<link href="css/clock.css" rel="stylesheet" type="text/css" />
+	<link id="theme" rel="stylesheet" type="text/css" />
+	<link href="css/slabtext.css" rel="stylesheet" type="text/css" />
+	
+	<script src="js/jquery.min.js"></script>
+	<script src="configure.js"></script>
+	<script src="js/jquery.slabtext.min.js"></script>
+	<script>
+	/*
+	 * jQuery Function Toggle Plugin
+	 * Copyright 2011, Felix Kling
+	 * Dual licensed under the MIT or GPL Version 2 licenses.
+	 */
+	
+	(function($) {
+	    $.fn.funcToggle = function(type, data) {
+	        var dname = "jqp_eventtoggle_" + type + (new Date()).getTime(),            
+	            funcs = Array.prototype.slice.call(arguments, 2),
+	            numFuncs = funcs.length,
+	            empty = function() {},
+	            false_handler = function() {return false;};
+	
+	        if(typeof type === "object") {
+	            for( var key in type) {
+	                $.fn.funcToggle.apply(this, [key].concat(type[key]));
+	            }
+	            return this;
+	        }
+	        if($.isFunction(data) || data === false) {
+	            funcs = [data].concat(funcs);
+	            numFuncs += 1;
+	            data = undefined;
+	        }
+	        
+	        funcs = $.map(funcs, function(func) {
+	            if(func === false) {
+	                return false_handler;
+	            }
+	            if(!$.isFunction(func)) {
+	                return empty;
+	            }
+	            return func;
+	        });
+	
+	        this.data(dname, 0);
+	        this.bind(type, data, function(event) {
+	            var data = $(this).data(),
+	                index = data[dname];
+	            funcs[index].call(this, event);
+	            data[dname] = (index + 1) % numFuncs;
+	        });
+	        return this;
+	    };
+	}(jQuery));
+	</script>
+
+</head>
+<body>
+
+	<div id="statusBar"></div>
+	
+	<div id="container">
+		<div id="time">	<span id="hour">00</span>
+						<span id="colon" class="blinkme">:</span>
+						<span id="minute">00</span>
+		</div>
+		<div id="day"><h1><span class="slabtext">XXXXXXXX</span></h1></div>
+		<div id="date"><h1><span class="slabtext">00</span></h1></div>
+		<div id="month"><h3><span class="">XXXXXXXX</span></h3></div>
+		<div id="year"><h1><span class="slabtext">XXXX</span></h1></div>
+	</div>
+
+	<script src="js/runClock.js"></script>
+	
+	<!-- Next Bit for DEMO only -->
+	<div style="font-size: 12px; line-height: 18px;position: absolute; bottom:0; width: 320px; height: 36px; background: #ccc; text-transform: normal;">
+	Click Anywhere to Preview "Colors" Theme<br />
+	<a href="https://github.com/jthei/Chronotype.theme">Source on GitHub</a>
+	<script>	
+	$(window).funcToggle('click', function() {
+	    $("#theme").attr("href", "css/colorsTheme.css");
+	    $("#month").css("background-color", "rgb(177, 79, 79)");
+	    $("#container").fadeTo(300, 1);
+		setTheme = "Colors";
+	}, function() {
+	    $("#theme").attr("href", "css/default.css");
+	    $("#month").css("background-color", "rgb(0, 0, 0)");
+	    $("#container").fadeTo(300, 0.6);
+		setTheme = "default";
+	});
+	</script>
+	</div>
+
+</body>
+</html>
