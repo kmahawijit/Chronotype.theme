@@ -30,7 +30,7 @@ GetTheme = { // Using GET Variables for theme testing in browser
 }
 setTheme = GetTheme.URLString("theme") ? GetTheme.URLString("theme") : setTheme;
 
-var setRefresh = setRefresh ? setRefresh*10000 : 30000;
+var setRefresh = setRefresh ? setRefresh*1000 : 30000;
 var now = new Date(); // Current Date (Client Side)
 var hours, hours12, use24;
 function setHours () {
