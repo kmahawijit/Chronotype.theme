@@ -171,15 +171,16 @@ function prtsel(x)
 	</script>
 	</div>
 	<div id="timer">
-	<table align=center width=45%>
+	<table align=center width=70%>
 <tr><td>
  <body onload=dis()>
  <BGSOUND id="BGSOUND_ID" LOOP=1 SRC="silence.wav">
  <input type=hidden id=d2 name=d2>
- <input type=text id=hour name=hour size=1 class=time> :
- <input type=text id=min name=min size=1 class=time> :
- <input type=text id=sec name=sec size=1 class=time>
+ <input type=hidden id=hour name=hour size=1 class=time> :
+ <input type=hidden id=min name=min size=1 class=time> :
+ <input type=hidden id=sec name=sec size=1 class=time>
  <br/>
+ 
  <select id=hour2 name=hour2 onChange="setv()">
  <script type='text/javascript'>prtsel(25);</script>
  </select>
