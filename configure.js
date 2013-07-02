@@ -15,7 +15,7 @@ var setTheme = "default";
 	setFont = "TGA-Regular",
 	
 	// Use 24-hour Clock
-	set24hr = false,
+	set24hr = true,
 	
 	// Fade in on refresh, in ms, set to 0 for no fade
 	setFadeIn = 500,
